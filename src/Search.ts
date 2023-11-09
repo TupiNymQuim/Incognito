@@ -1,4 +1,5 @@
 import { mixFetch, SetupMixFetchOps } from "@nymproject/mix-fetch-full-fat";
+import { WebResult } from "./result-types";
 
 const extra = {
   hiddenGateways: [
@@ -23,27 +24,30 @@ const mixFetchOptions: SetupMixFetchOps = {
   extra,
 };
 
-export async function fetchBraveApi(url: string): Promise<void> {
-  try {
-    const response = await mixFetch(
-      url,
-      {
-        method: "GET",
-        mode: "unsafe-ignore-cors",
-        headers: {
-          "X-Subscription-Token": process.env.REACT_APP_API_KEY,
-        },
+async function fetchBraveApi(url: string): Promise<any> {
+  let data: object;
+  const response = await mixFetch(
+    url,
+    {
+      method: "GET",
+      mode: "unsafe-ignore-cors",
+      headers: {
+        "X-Subscription-Token": process.env.REACT_APP_API_KEY,
       },
-      mixFetchOptions,
-    );
+    },
+    mixFetchOptions,
+  );
+  if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+  data = await response.json();
+  return data;
+}
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    console.log("Data received:", data);
-  } catch (error: any) {
-    console.error("Error fetching data:", error.message);
-  }
+export async function webSearch(query: string): Promise<Array<WebResult>> {
+  const url =
+    "https://api.search.brave.com/res/v1/web/search?q=" +
+    query +
+    "&count=5&result_filter=web";
+    const response = await fetchBraveApi(url);
+    const results: Array<WebResult> = response["web"]["results"];
+    return results;
 }

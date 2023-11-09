@@ -1,12 +1,18 @@
 import React from "react";
-import { fetchBraveApi } from "./Search";
+import { webSearch } from "./Search";
 import "./App.css";
+import { WebResult } from "./result-types";
 
 export function TestButton() {
   async function get() {
-    fetchBraveApi(
-      "https://api.search.brave.com/res/v1/web/search?q=nym&count=1&result_filter=web",
-    );
+    try {
+      const results = await webSearch("nym");
+      for (const result of results) {
+        console.log(result.title, ": ", result.url);
+      }
+    } catch (error: any) {
+      console.error("Error fetching data:", error.message);
+    }
   }
   return <button onClick={get}>Search</button>;
 }
