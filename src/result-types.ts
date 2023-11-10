@@ -1,5 +1,4 @@
 interface Thumbnail {
-	logo: boolean,
 	original: string,
 	src: string
 };
@@ -14,8 +13,10 @@ export interface WebResult {
 	url: string,
 };
 
-export interface WebApiResponse {
-	web: {
-		results: Array<WebResult>,
-	}
+export interface VideoResult {
+	age: string,
+	description: string,
+	thumbnail: Thumbnail,
+	title: string,
+	url: string,
 };

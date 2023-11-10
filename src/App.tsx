@@ -1,10 +1,9 @@
 import React from "react";
-import { webSearch } from "./Search";
+import { videoSearch, webSearch } from "./Search";
 import "./App.css";
-import { WebResult } from "./result-types";
 
 export function TestButton() {
-  async function get() {
+  async function getWeb() {
     try {
       const results = await webSearch("nym");
       for (const result of results) {
@@ -14,7 +13,22 @@ export function TestButton() {
       console.error("Error fetching data:", error.message);
     }
   }
-  return <button onClick={get}>Search</button>;
+  async function getVideo() {
+    try {
+      const results = await videoSearch("nym");
+      for (const result of results) {
+        console.log(result.title, ": ", result.url);
+      }
+    } catch (error: any) {
+      console.error("Error fetching data:", error.message);
+    }
+  }
+  return (
+    <div>
+      <button onClick={getWeb}>Search Web</button>
+      <button onClick={getVideo}>Search Video</button>
+    </div>
+  );
 }
 
 export default function App() {

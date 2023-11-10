@@ -1,5 +1,5 @@
 import { mixFetch, SetupMixFetchOps } from "@nymproject/mix-fetch-full-fat";
-import { WebResult } from "./result-types";
+import { WebResult, VideoResult } from "./result-types";
 
 const extra = {
   hiddenGateways: [
@@ -49,5 +49,15 @@ export async function webSearch(query: string): Promise<Array<WebResult>> {
     "&count=5&result_filter=web";
     const response = await fetchBraveApi(url);
     const results: Array<WebResult> = response["web"]["results"];
+    return results;
+}
+
+export async function videoSearch(query: string): Promise<Array<VideoResult>> {
+  const url =
+    "https://api.search.brave.com/res/v1/videos/search?q=" +
+    query +
+    "&count=5&result_filter=videos";
+    const response = await fetchBraveApi(url);
+    const results: Array<WebResult> = response["results"];
     return results;
 }
