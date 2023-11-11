@@ -4,14 +4,14 @@ interface Thumbnail {
 };
 
 export interface WebResult {
-	age: string,
-	description: string,
-	family_frinedly: boolean,
-	language: string,
-	thumbnail: Thumbnail,
-	title: string,
-	url: string,
-};
+  age: string;
+  description: string;
+  family_frinedly: boolean;
+  language: string;
+  thumbnail: Thumbnail;
+  title: string;
+  url: string;
+}
 
 export interface VideoResult {
 	age: string,
@@ -20,3 +20,10 @@ export interface VideoResult {
 	title: string,
 	url: string,
 };
+export interface NewsResult {
+  age: string;
+  description: string;
+  thumbnail: Thumbnail;
+  title: string;
+  url: string;
+}

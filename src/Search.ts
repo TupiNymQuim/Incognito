@@ -1,5 +1,5 @@
 import { mixFetch, SetupMixFetchOps } from "@nymproject/mix-fetch-full-fat";
-import { WebResult, VideoResult } from "./result-types";
+import { NewsResult, WebResult, VideoResult } from "./result-types";
 
 const extra = {
   hiddenGateways: [
@@ -47,9 +47,19 @@ export async function webSearch(query: string): Promise<Array<WebResult>> {
     "https://api.search.brave.com/res/v1/web/search?q=" +
     query +
     "&count=5&result_filter=web&spellcheck=false";
-    const response = await fetchBraveApi(url);
-    const results: Array<WebResult> = response["web"]["results"];
-    return results;
+  const response = await fetchBraveApi(url);
+  const results: Array<WebResult> = response["web"]["results"];
+  return results;
+}
+
+export async function newsSearch(query: string): Promise<Array<NewsResult>> {
+  const url =
+    "https://api.search.brave.com/res/v1/news/search?q=" +
+    query +
+    "&count=5&spellcheck=false";
+  const response = await fetchBraveApi(url);
+  const results: Array<NewsResult> = response["results"];
+  return results;
 }
 
 export async function videoSearch(query: string): Promise<Array<VideoResult>> {
@@ -57,7 +67,7 @@ export async function videoSearch(query: string): Promise<Array<VideoResult>> {
     "https://api.search.brave.com/res/v1/videos/search?q=" +
     query +
     "&count=5&result_filter=videos&spellcheck=false";
-    const response = await fetchBraveApi(url);
-    const results: Array<WebResult> = response["results"];
-    return results;
+  const response = await fetchBraveApi(url);
+  const results: Array<WebResult> = response["results"];
+  return results;
 }
