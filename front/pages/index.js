@@ -14,7 +14,7 @@ export default function Home()
         <Head>
             <title>Incognito</title>
         </Head>
-        <Navbar/>
+
       </div>
       <div className={styles.container}>
         <main>
