@@ -1,5 +1,10 @@
 import { mixFetch, SetupMixFetchOps } from "@nymproject/mix-fetch-full-fat";
-import { ImageResult, WebResult } from "./result-types";
+import {
+  ImageResult,
+  NewsResult,
+  WebResult,
+  VideoResult,
+} from "./result-types";
 
 const extra = {
   hiddenGateways: [
@@ -80,4 +85,24 @@ export async function fetchImage(url: string): Promise<string> {
     reader.readAsDataURL(blob);
   });
   return dataUrl;
+}
+
+export async function newsSearch(query: string): Promise<Array<NewsResult>> {
+  const url =
+    "https://api.search.brave.com/res/v1/news/search?q=" +
+    query +
+    "&count=5&spellcheck=false";
+  const response = await fetchBraveApi(url);
+  const results: Array<NewsResult> = response["results"];
+  return results;
+}
+
+export async function videoSearch(query: string): Promise<Array<VideoResult>> {
+  const url =
+    "https://api.search.brave.com/res/v1/videos/search?q=" +
+    query +
+    "&count=5&result_filter=videos&spellcheck=false";
+  const response = await fetchBraveApi(url);
+  const results: Array<WebResult> = response["results"];
+  return results;
 }

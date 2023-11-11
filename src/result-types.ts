@@ -22,3 +22,19 @@ export interface ImageResult {
   title: string;
   url: string;
 }
+
+export interface VideoResult {
+  age: string;
+  description: string;
+  thumbnail: Thumbnail;
+  title: string;
+  url: string;
+}
+
+export interface NewsResult {
+  age: string;
+  description: string;
+  thumbnail: Thumbnail;
+  title: string;
+  url: string;
+}
