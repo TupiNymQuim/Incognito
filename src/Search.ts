@@ -47,21 +47,65 @@ async function fetchBraveApi(url: string): Promise<any> {
   return data;
 }
 
-export async function webSearch(query: string): Promise<Array<WebResult>> {
+export async function webSearch(
+  query: string,
+  page: number,
+): Promise<Array<WebResult>> {
   const url =
     "https://api.search.brave.com/res/v1/web/search?q=" +
     query +
-    "&count=5&result_filter=web&spellcheck=false";
+    "&offset=" +
+    page +
+    "&count=20" + //Changes the number of results in the page
+    "&result_filter=web&spellcheck=false&safesearch=off";
   const response = await fetchBraveApi(url);
   const results: Array<WebResult> = response["web"]["results"];
   return results;
 }
 
-export async function imageSearch(query: string): Promise<Array<ImageResult>> {
+export async function newsSearch(
+  query: string,
+  page: number,
+): Promise<Array<NewsResult>> {
+  const url =
+    "https://api.search.brave.com/res/v1/news/search?q=" +
+    query +
+    "&offset=" +
+    page +
+    "&count=20" + //Changes the number of results in the page
+    "&spellcheck=false&safesearch=off";
+  const response = await fetchBraveApi(url);
+  const results: Array<NewsResult> = response["results"];
+  return results;
+}
+
+export async function videoSearch(
+  query: string,
+  page: number,
+): Promise<Array<VideoResult>> {
+  const url =
+    "https://api.search.brave.com/res/v1/videos/search?q=" +
+    query +
+    "&offset=" +
+    page +
+    "&count=5" + //Changes the number of results in the page
+    "&result_filter=videos&spellcheck=false";
+  const response = await fetchBraveApi(url);
+  const results: Array<WebResult> = response["results"];
+  return results;
+}
+
+export async function imageSearch(
+  query: string,
+  page: number,
+): Promise<Array<ImageResult>> {
   const url =
     "https://api.search.brave.com/res/v1/images/search?q=" +
     query +
-    "&count=5&result_filter=web&spellcheck=false";
+    "&offset=" +
+    page +
+    "&count=5" + //Changes the number of results in the page
+    "&spellcheck=false&safesearch=off";
   const response = await fetchBraveApi(url);
   const results: Array<ImageResult> = response["results"];
   return results;
@@ -85,24 +129,4 @@ export async function fetchImage(url: string): Promise<string> {
     reader.readAsDataURL(blob);
   });
   return dataUrl;
-}
-
-export async function newsSearch(query: string): Promise<Array<NewsResult>> {
-  const url =
-    "https://api.search.brave.com/res/v1/news/search?q=" +
-    query +
-    "&count=5&spellcheck=false";
-  const response = await fetchBraveApi(url);
-  const results: Array<NewsResult> = response["results"];
-  return results;
-}
-
-export async function videoSearch(query: string): Promise<Array<VideoResult>> {
-  const url =
-    "https://api.search.brave.com/res/v1/videos/search?q=" +
-    query +
-    "&count=5&result_filter=videos&spellcheck=false";
-  const response = await fetchBraveApi(url);
-  const results: Array<WebResult> = response["results"];
-  return results;
 }
