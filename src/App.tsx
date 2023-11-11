@@ -11,7 +11,7 @@ import "./App.css";
 export function TestButton() {
   async function getWeb() {
     try {
-      const results = await webSearch("nym");
+      const results = await webSearch("nym", 0);
       for (const result of results) {
         console.log(result.title, ": ", result.url);
       }
@@ -22,7 +22,7 @@ export function TestButton() {
 
   async function getImage() {
     try {
-      const results = await imageSearch("nymtech");
+      const results = await imageSearch("nymtech", 0);
       for (const result of results) {
         try {
           const image = await fetchImage(result.thumbnail.src); //This takes a while, we should request the images in parallel when displaying the results
@@ -38,7 +38,7 @@ export function TestButton() {
 
   async function getVideo() {
     try {
-      const results = await videoSearch("nym");
+      const results = await videoSearch("nym", 0);
       for (const result of results) {
         console.log(result.title, ": ", result.url);
       }
@@ -49,7 +49,7 @@ export function TestButton() {
 
   async function getNews() {
     try {
-      const results = await newsSearch("nym");
+      const results = await newsSearch("nym", 0);
       for (const result of results) {
         console.log(result.title, ": ", result.url);
       }
