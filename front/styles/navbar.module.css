@@ -1,0 +1,14 @@
+.list {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; /* Align items vertically in the flex container */
+}
+
+.navbar i {
+    margin-right: 15px; /* Adjust the margin to create space between the circles */
+}
