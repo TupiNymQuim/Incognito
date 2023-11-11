@@ -46,7 +46,7 @@ export async function webSearch(query: string): Promise<Array<WebResult>> {
   const url =
     "https://api.search.brave.com/res/v1/web/search?q=" +
     query +
-    "&count=5&result_filter=web";
+    "&count=5&result_filter=web&spellcheck=false";
     const response = await fetchBraveApi(url);
     const results: Array<WebResult> = response["web"]["results"];
     return results;
@@ -56,7 +56,7 @@ export async function videoSearch(query: string): Promise<Array<VideoResult>> {
   const url =
     "https://api.search.brave.com/res/v1/videos/search?q=" +
     query +
-    "&count=5&result_filter=videos";
+    "&count=5&result_filter=videos&spellcheck=false";
     const response = await fetchBraveApi(url);
     const results: Array<WebResult> = response["results"];
     return results;
