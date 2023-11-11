@@ -1,8 +1,7 @@
 interface Thumbnail {
-  logo: boolean;
-  original: string;
-  src: string;
-}
+	original: string,
+	src: string
+};
 
 export interface WebResult {
   age: string;
@@ -14,6 +13,13 @@ export interface WebResult {
   url: string;
 }
 
+export interface VideoResult {
+	age: string,
+	description: string,
+	thumbnail: Thumbnail,
+	title: string,
+	url: string,
+};
 export interface NewsResult {
   age: string;
   description: string;

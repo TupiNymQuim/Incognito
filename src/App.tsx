@@ -1,11 +1,21 @@
 import React from "react";
-import { newsSearch, webSearch } from "./Search";
+import { newsSearch, videoSearch, webSearch } from "./Search";
 import "./App.css";
 
 export function TestButton() {
   async function getWeb() {
     try {
       const results = await webSearch("nym");
+      for (const result of results) {
+        console.log(result.title, ": ", result.url);
+      }
+    } catch (error: any) {
+      console.error("Error fetching data:", error.message);
+    }
+  }
+  async function getVideo() {
+    try {
+      const results = await videoSearch("nym");
       for (const result of results) {
         console.log(result.title, ": ", result.url);
       }
@@ -25,8 +35,9 @@ export function TestButton() {
   }
   return (
     <div>
-      <button onClick={getWeb}>Search</button>
-      <button onClick={getNews}>Search</button>
+      <button onClick={getWeb}>Search Web</button>
+      <button onClick={getVideo}>Search Video</button>
+      <button onClick={getNews}>Search News</button>
     </div>
   );
 }
