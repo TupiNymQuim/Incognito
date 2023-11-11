@@ -1,5 +1,10 @@
 import { mixFetch, SetupMixFetchOps } from "@nymproject/mix-fetch-full-fat";
-import { NewsResult, WebResult, VideoResult } from "./result-types";
+import {
+  ImageResult,
+  NewsResult,
+  WebResult,
+  VideoResult,
+} from "./result-types";
 
 const extra = {
   hiddenGateways: [
@@ -50,6 +55,36 @@ export async function webSearch(query: string): Promise<Array<WebResult>> {
   const response = await fetchBraveApi(url);
   const results: Array<WebResult> = response["web"]["results"];
   return results;
+}
+
+export async function imageSearch(query: string): Promise<Array<ImageResult>> {
+  const url =
+    "https://api.search.brave.com/res/v1/images/search?q=" +
+    query +
+    "&count=5&result_filter=web&spellcheck=false";
+  const response = await fetchBraveApi(url);
+  const results: Array<ImageResult> = response["results"];
+  return results;
+}
+
+export async function fetchImage(url: string): Promise<string> {
+  const response = await mixFetch(
+    url,
+    {
+      mode: "unsafe-ignore-cors",
+    },
+    mixFetchOptions,
+  );
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+  const blob = await response.blob();
+  const dataUrl = await new Promise<string>((resolve) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result as string);
+    reader.readAsDataURL(blob);
+  });
+  return dataUrl;
 }
 
 export async function newsSearch(query: string): Promise<Array<NewsResult>> {
