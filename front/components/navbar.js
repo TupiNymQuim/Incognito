@@ -11,16 +11,18 @@ const Navbar = () =>
     <nav>
         <Head>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-
             </link>
         </Head>
         <ul className={styles.list}>
+          <Link href="/about">
             <li className={styles.navbar}>
-                <i href="/">About</i>
-                <i class="fa-regular fa-circle"></i>
-                <i class="fa-regular fa-circle"></i>
+                <i>
+                  <h4>About</h4>
+                </i>
+                <i className="fa-solid fa-circle" style={{ color: "#ffffff" }}></i>
+                <i className="fa-solid fa-circle" style={{ color: "#ffffff" }}></i>
             </li>
+          </Link>
         </ul>
     </nav>
   );

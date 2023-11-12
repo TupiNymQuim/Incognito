@@ -15,7 +15,7 @@ body {
     Droid Sans,
     Helvetica Neue,
     sans-serif;
-  background-color: black;
+  background-color: rgb(36, 35, 35);
   height: 100vh; /* Set the body to full height of the viewport */
 }
 

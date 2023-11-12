@@ -1,0 +1,29 @@
+/* About.module.css */
+
+.about
+{
+    display: flex;
+    color: white;
+}
+
+.main_container
+{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.about h1
+{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.main_container h1
+{
+    color: white;
+}

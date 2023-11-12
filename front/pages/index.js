@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import Navbar from '../components/navbar';
 import React, { useState } from "react";
 import SearchBar from "material-ui-search-bar";
 import Image from "next/image";
@@ -26,6 +25,8 @@ export default function Home()
             <Image src="/logo.png" width={500} height={500}>
             </Image>
             <SearchBar
+              className={styles.search_bar}
+              placeholder="search the web untracked"
               value={searchValue}
               onChange={(newValue) => setSearchValue(newValue)}
               onRequestSearch={handleSearch}

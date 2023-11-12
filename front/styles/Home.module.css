@@ -16,5 +16,12 @@
 
 .main
 {
-  height: 100vh;
+  min-height: 80vh;
+}
+
+.search_bar
+{
+  width: 130%;
+  border-radius: 40px;
+  font-size: 1em; /* You can use em for relative font size */
 }

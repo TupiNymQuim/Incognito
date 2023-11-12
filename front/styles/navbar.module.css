@@ -1,6 +1,7 @@
 .list {
     display: flex;
     justify-content: flex-end;
+    background-color: rgb(57, 57, 59);
     color: white;
 }
 
@@ -12,4 +13,5 @@
 
 .navbar i {
     margin-right: 15px; /* Adjust the margin to create space between the circles */
+    color: white;
 }
