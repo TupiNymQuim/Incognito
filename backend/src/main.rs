@@ -1,4 +1,6 @@
 use actix_web::{get, App, HttpServer, Responder};
+use middleware::SayHi;
+mod middleware;
 
 #[get("/web")]
 async fn web_search() -> impl Responder {
@@ -24,6 +26,7 @@ async fn news_search() -> impl Responder {
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
+            .wrap(SayHi)
             .service(web_search)
             .service(video_search)
             .service(images_search)
