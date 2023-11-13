@@ -1,14 +1,16 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../../styles/about.module.css';
-import Navbar from '../../components/navbar';
+import Navbar2 from '../../components/navbar2';
 
 export default function About()
 {
     return (
         <div className={styles.container}>
+        <div className={styles.left_space}></div>
             <Head>
             <title>About</title>
+            <Navbar2></Navbar2>
             </Head>
             <main className={styles.main_container}>
                 
@@ -55,6 +57,9 @@ export default function About()
                     et dictum augue.
                     </p>
             </main>
+            <div className={styles.container_right}>
+
+            </div>
 
         </div>
 

@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css';
 import React, { useState } from "react";
 import SearchBar from "material-ui-search-bar";
 import Image from "next/image";
-
+import NavBar from "../components/navbar"
 export default function Home()
 {
   const [searchValue, setSearchValue] = useState('');
@@ -17,6 +17,7 @@ export default function Home()
       <div className={styles.header}>
         <Head>
           <title>Incognito</title>
+          <NavBar></NavBar>
         </Head>
       </div>
       <div className={styles.container}>

@@ -6,6 +6,13 @@
     color: white;
 }
 
+.container
+{
+    display: flex;
+    flex-direction: row;
+
+}
+
 .main_container
 {
     height: 80vh;
@@ -13,6 +20,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.left_space
+{
+    min-width: 13vh;
+}
+
+.container_right
+{
+    min-width: 80vh;
+}
+
+.container_right h1
+{
+    color: white;
 }
 
 .about h1
