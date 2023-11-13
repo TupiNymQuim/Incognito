@@ -5,9 +5,9 @@ use actix_web::{
     Error, HttpResponse,
 };
 
-pub struct SayHi;
+pub struct Whitelist;
 
-impl<S> Transform<S, ServiceRequest> for SayHi
+impl<S> Transform<S, ServiceRequest> for Whitelist
 where
     S: Service<ServiceRequest, Response = ServiceResponse, Error = Error>,
     S::Future: 'static,
@@ -15,21 +15,21 @@ where
     type Response = ServiceResponse;
     type Error = Error;
     type InitError = ();
-    type Transform = SayHiMiddleware<S>;
+    type Transform = WhitelistMiddleware<S>;
     type Future = Ready<Result<Self::Transform, Self::InitError>>;
 
     fn new_transform(&self, service: S) -> Self::Future {
-        ready(Ok(SayHiMiddleware { service }))
+        ready(Ok(WhitelistMiddleware { service }))
     }
 }
 
-pub struct SayHiMiddleware<S> {
+pub struct WhitelistMiddleware<S> {
     service: S,
 }
 
 type LocalBoxFuture<T> = Pin<Box<dyn Future<Output = T> + 'static>>;
 
-impl<S> Service<ServiceRequest> for SayHiMiddleware<S>
+impl<S> Service<ServiceRequest> for WhitelistMiddleware<S>
 where
     S: Service<ServiceRequest, Response = ServiceResponse, Error = Error>,
     S::Future: 'static,

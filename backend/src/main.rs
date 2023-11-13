@@ -3,7 +3,7 @@ use reqwest;
 use serde::Deserialize;
 use std::process::exit;
 use dotenv::dotenv;
-use middleware::SayHi;
+use middleware::Whitelist;
 mod middleware;
 
 #[derive(Deserialize)]
@@ -71,7 +71,7 @@ async fn main() -> std::io::Result<()> {
     if let Ok(bind_ip) = std::env::var("BIND_IP") {
         HttpServer::new(|| {
             App::new()
-                .wrap(SayHi)
+                .wrap(Whitelist)
                 .service(web_search)
                 .service(video_search)
                 .service(images_search)
