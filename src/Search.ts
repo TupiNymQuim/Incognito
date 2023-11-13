@@ -29,16 +29,14 @@ const mixFetchOptions: SetupMixFetchOps = {
   extra,
 };
 
-async function fetchBraveApi(url: string): Promise<any> {
+async function fetchBackend(url: string, body: string): Promise<any> {
   let data: object;
   const response = await mixFetch(
     url,
     {
-      method: "GET",
+      method: "POST",
+      body: body,
       mode: "unsafe-ignore-cors",
-      headers: {
-        "X-Subscription-Token": process.env.REACT_APP_API_KEY,
-      },
     },
     mixFetchOptions,
   );
@@ -51,14 +49,15 @@ export async function webSearch(
   query: string,
   page: number,
 ): Promise<Array<WebResult>> {
-  const url =
-    "https://api.search.brave.com/res/v1/web/search?q=" +
+  const url = "http://" + process.env.REACT_APP_BACKEND + "/web";
+  const body =
+    "q=" +
     query +
     "&offset=" +
     page +
     "&count=20" + //Changes the number of results in the page
-    "&result_filter=web&spellcheck=false&safesearch=off";
-  const response = await fetchBraveApi(url);
+    "&spellcheck=false&safesearch=off";
+  const response = await fetchBackend(url, body);
   const results: Array<WebResult> = response["web"]["results"];
   return results;
 }
@@ -67,14 +66,15 @@ export async function newsSearch(
   query: string,
   page: number,
 ): Promise<Array<NewsResult>> {
-  const url =
-    "https://api.search.brave.com/res/v1/news/search?q=" +
+  const url = "http://" + process.env.REACT_APP_BACKEND + "/news";
+  const body =
+    "q=" +
     query +
     "&offset=" +
     page +
     "&count=20" + //Changes the number of results in the page
     "&spellcheck=false&safesearch=off";
-  const response = await fetchBraveApi(url);
+  const response = await fetchBackend(url, body);
   const results: Array<NewsResult> = response["results"];
   return results;
 }
@@ -83,14 +83,15 @@ export async function videoSearch(
   query: string,
   page: number,
 ): Promise<Array<VideoResult>> {
-  const url =
-    "https://api.search.brave.com/res/v1/videos/search?q=" +
+  const url = "http://" + process.env.REACT_APP_BACKEND + "/videos";
+  const body =
+    "q=" +
     query +
     "&offset=" +
     page +
     "&count=5" + //Changes the number of results in the page
-    "&result_filter=videos&spellcheck=false";
-  const response = await fetchBraveApi(url);
+    "&spellcheck=false&safesearch=off";
+  const response = await fetchBackend(url, body);
   const results: Array<WebResult> = response["results"];
   return results;
 }
@@ -99,14 +100,15 @@ export async function imageSearch(
   query: string,
   page: number,
 ): Promise<Array<ImageResult>> {
-  const url =
-    "https://api.search.brave.com/res/v1/images/search?q=" +
+  const url = "http://" + process.env.REACT_APP_BACKEND + "/videos";
+  const body =
+    "q=" +
     query +
     "&offset=" +
     page +
     "&count=5" + //Changes the number of results in the page
     "&spellcheck=false&safesearch=off";
-  const response = await fetchBraveApi(url);
+  const response = await fetchBackend(url, body);
   const results: Array<ImageResult> = response["results"];
   return results;
 }
