@@ -4,7 +4,7 @@ import {
   NewsResult,
   WebResult,
   VideoResult,
-} from "./result-types";
+} from "../types/result-types";
 
 const extra = {
   hiddenGateways: [
@@ -37,10 +37,10 @@ async function fetchBraveApi(url: string): Promise<any> {
       method: "GET",
       mode: "unsafe-ignore-cors",
       headers: {
-        "X-Subscription-Token": process.env.REACT_APP_API_KEY,
+        "X-Subscription-Token": "BSAyQkGjx_2bcoVhYIqiAWyX7QTtqa_",
       },
     },
-    mixFetchOptions,
+    mixFetchOptions
   );
   if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
   data = await response.json();
@@ -49,14 +49,14 @@ async function fetchBraveApi(url: string): Promise<any> {
 
 export async function webSearch(
   query: string,
-  page: number,
+  page: number
 ): Promise<Array<WebResult>> {
   const url =
     "https://api.search.brave.com/res/v1/web/search?q=" +
     query +
     "&offset=" +
     page +
-    "&count=20" + //Changes the number of results in the page
+    "&count=10" + //Changes the number of results in the page
     "&result_filter=web&spellcheck=false&safesearch=off";
   const response = await fetchBraveApi(url);
   const results: Array<WebResult> = response["web"]["results"];
@@ -65,7 +65,7 @@ export async function webSearch(
 
 export async function newsSearch(
   query: string,
-  page: number,
+  page: number
 ): Promise<Array<NewsResult>> {
   const url =
     "https://api.search.brave.com/res/v1/news/search?q=" +
@@ -81,7 +81,7 @@ export async function newsSearch(
 
 export async function videoSearch(
   query: string,
-  page: number,
+  page: number
 ): Promise<Array<VideoResult>> {
   const url =
     "https://api.search.brave.com/res/v1/videos/search?q=" +
@@ -97,7 +97,7 @@ export async function videoSearch(
 
 export async function imageSearch(
   query: string,
-  page: number,
+  page: number
 ): Promise<Array<ImageResult>> {
   const url =
     "https://api.search.brave.com/res/v1/images/search?q=" +
@@ -108,6 +108,7 @@ export async function imageSearch(
     "&spellcheck=false&safesearch=off";
   const response = await fetchBraveApi(url);
   const results: Array<ImageResult> = response["results"];
+  console.log("RESULT BRAVE: ", response);
   return results;
 }
 
@@ -117,7 +118,7 @@ export async function fetchImage(url: string): Promise<string> {
     {
       mode: "unsafe-ignore-cors",
     },
-    mixFetchOptions,
+    mixFetchOptions
   );
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);
