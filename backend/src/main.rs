@@ -1,15 +1,9 @@
-use actix_web::{post, web, App, HttpServer, Responder};
+use actix_web::{post, App, HttpServer, Responder};
 use reqwest;
-use serde::Deserialize;
 use std::process::exit;
 use dotenv::dotenv;
 use middleware::Whitelist;
 mod middleware;
-
-#[derive(Deserialize)]
-struct Info {
-    query_params: String,
-}
 
 const BRAVE_API_URL: &str = "https://api.search.brave.com/res/v1";
 
@@ -35,32 +29,32 @@ async fn fetch_brave_api(url: String) -> String {
 }
 
 #[post("/web")]
-async fn web_search(info: web::Json<Info>) -> impl Responder {
+async fn web_search(query: String) -> impl Responder {
     let base_url = format!(
         "{}/web/search?{}&result_filter=web",
-        BRAVE_API_URL, info.query_params
+        BRAVE_API_URL, query
     );
 
     fetch_brave_api(base_url).await
 }
 
 #[post("/videos")]
-async fn video_search(info: web::Json<Info>) -> impl Responder {
-    let base_url = format!("{}/videos/search?{}", BRAVE_API_URL, info.query_params);
+async fn video_search(query: String) -> impl Responder {
+    let base_url = format!("{}/videos/search?{}", BRAVE_API_URL, query);
 
     fetch_brave_api(base_url).await
 }
 
 #[post("/images")]
-async fn images_search(info: web::Json<Info>) -> impl Responder {
-    let base_url = format!("{}/images/search?{}", BRAVE_API_URL, info.query_params);
+async fn images_search(query: String) -> impl Responder {
+    let base_url = format!("{}/images/search?{}", BRAVE_API_URL, query);
 
     fetch_brave_api(base_url).await
 }
 
 #[post("/news")]
-async fn news_search(info: web::Json<Info>) -> impl Responder {
-    let base_url = format!("{}/news/search?{}", BRAVE_API_URL, info.query_params);
+async fn news_search(query: String) -> impl Responder {
+    let base_url = format!("{}/news/search?{}", BRAVE_API_URL, query);
 
     fetch_brave_api(base_url).await
 }
