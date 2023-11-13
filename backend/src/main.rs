@@ -1,3 +1,6 @@
+use std::process::exit;
+
+use dotenv::dotenv;
 use actix_web::{get, App, HttpServer, Responder};
 use middleware::SayHi;
 mod middleware;
@@ -24,14 +27,21 @@ async fn news_search() -> impl Responder {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    HttpServer::new(|| {
-        App::new()
-            .wrap(SayHi)
-            .service(web_search)
-            .service(video_search)
-            .service(images_search)
-            .service(news_search)})
-    .bind(("127.0.0.1", 8080))?
-    .run()
-    .await
+    dotenv().ok();
+    if let Ok(bind_ip) = std::env::var("BIND_IP") {
+        HttpServer::new(|| {
+            App::new()
+                .wrap(SayHi)
+                .service(web_search)
+                .service(video_search)
+                .service(images_search)
+                .service(news_search)})
+        .bind((bind_ip, 8080))?
+        .run()
+        .await
+    }
+    else {
+        eprintln!("Error: Bind IP not set in .env file");
+        exit(1);
+    }
 }

@@ -41,10 +41,13 @@ where
     forward_ready!(service);
 
     fn call(&self, req: ServiceRequest) -> Self::Future {
-        let allowed_ip = "127.0.0.1"; //Put network requester here aswell
+        let allowed_ip = std::env::var("NR_IP").unwrap_or_else(|_| {
+            eprintln!("Error: NR_IP environment variable not set");
+            return "".to_string();
+        });
         if let Some(val) = req.peer_addr() {
             let ip: String = val.ip().to_string();
-            if !ip.contains(allowed_ip) {
+            if allowed_ip.is_empty() || !ip.contains(&allowed_ip) {
                 return Box::pin(async move {
                     let res = req.into_response(HttpResponse::Unauthorized().finish());
                     Ok(res)
