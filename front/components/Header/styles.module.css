@@ -1,0 +1,54 @@
+.header {
+	background-color: #3A3A3A;
+	height: 165px;
+	padding-bottom: 10px;
+}
+
+.content {
+	display: flex;
+	margin-left: 76px;
+	padding: 30.75px 0px;
+	align-items: center;
+}
+
+.headerLogo {
+	margin-right: 37px;
+}
+
+.inputDiv {
+	display: flex;
+	background-color: #FFFFFF;
+	align-items: center;
+	border-radius: 80px;
+	height: 62px;
+	width: 700px;
+}
+
+.inputDiv input {
+	width: 80%;
+	font-size: 18px;
+	border: none;
+}
+
+.inputDiv input:focus {
+	outline: none;
+}
+
+.inputIcon {
+	margin-left: 18px;
+	margin-right: 18px;
+}
+
+.buttons {
+	margin-left: 288px;
+}
+
+.button {
+	margin-right: 10px;
+	background: none;
+	font-family: 'Inter', sans-serif;
+	font-size: 16px;
+	border: 1px solid red;
+	cursor: pointer;
+	color: white;
+}

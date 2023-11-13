@@ -1,44 +1,5 @@
 .container {
-	height: 100vh;
 	background-color: #2A2A2A;
-}
-
-.header {
-	background-color: #3A3A3A;
-	height: 165px;
-}
-
-.headerContent {
-	display: flex;
-	margin-left: 76px;
-	padding: 30.75px 0px;
-	align-items: center;
-}
-
-.headerLogo {
-	margin-right: 37px;
-}
-
-.inputDiv {
-	display: flex;
-	background-color: #FFFFFF;
-	align-items: center;
-	border-radius: 80px;
-	height: 62px;
-	width: 700px;
-}
-
-.inputIcon {
-	margin-left: 18px;
-	margin-right: 18px;
-}
-
-.inputDiv input {
-	width: 80%;
-	font-size: 18px;
-	border: none;
-}
-
-.inputDiv input:focus {
-	outline: none;
+	min-height: 100vh;
+	background-size: cover;
 }
