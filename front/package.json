@@ -6,8 +6,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.2.6",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@nymproject/mix-fetch-full-fat": "^1.2.4-rc.0",
     "@uidotdev/usehooks": "^2.4.1",
+    "antd": "^5.11.1",
+    "framer-motion": "^10.16.4",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
