@@ -10,13 +10,30 @@ export default function Home() {
   const [searchValue, setSearchValue] = useState('');
   const router = useRouter(); // Get the router object using the useRouter hook
 
-  const handleSearch = () => {
-    console.log('Search value:', searchValue);
+  // const handleSearch = () => {
+  //   console.log('Search value:', searchValue);
 
-    // Use the router object to navigate to the "/about" page
-    router.push('/about');
-    return searchValue;
-  };
+
+  //   // Use the router object to navigate to the "/about" page
+  //   router.push('/about');
+  //   return searchValue;
+  // };
+
+  async function handleSearch(newInput: string) {
+    if (newInput == "") {
+      return;
+    }
+    try {
+      setLoading(true);
+      const data = await webSearch(newInput, 0);
+      setResults(data);
+      setLoading(false);
+      console.log("Results after search; ", data);
+    } catch (err) {
+      console.log("Error fetching news: ", err);
+    }
+  }
+
   return (
     <div>
       <div className={styles.header}>

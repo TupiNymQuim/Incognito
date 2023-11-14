@@ -4,6 +4,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-content: center;
+  height: 40vh;
 }
 
 .lg_bar
@@ -24,4 +26,9 @@
   width: 130%;
   border-radius: 40px;
   font-size: 1em; /* You can use em for relative font size */
+}
+
+.header
+{
+  height: 10vh;
 }

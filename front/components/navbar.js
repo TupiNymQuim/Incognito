@@ -13,7 +13,7 @@ const Navbar = () =>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
             </link>
         </Head>
-        <ul className={styles.list}>
+        <div className={styles.list}>
           <Link href="/about">
             <li className={styles.navbar}>
                 <i>
@@ -23,7 +23,7 @@ const Navbar = () =>
                 <i className="fa-solid fa-circle" style={{ color: "#ffffff" }}></i>
             </li>
           </Link>
-        </ul>
+        </div>
     </nav>
   );
 };

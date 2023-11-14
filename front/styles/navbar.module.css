@@ -15,3 +15,8 @@
     margin-right: 15px; /* Adjust the margin to create space between the circles */
     color: white;
 }
+
+.header
+{
+    height: 10vh;
+}

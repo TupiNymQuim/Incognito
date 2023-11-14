@@ -18,8 +18,8 @@
     height: 80vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 .left_space
@@ -53,4 +53,11 @@
 .main_container p
 {
     color: white;
+}
+
+.website
+{
+    color: rgb(23, 91, 186);
+    font-weight: bold;
+    text-decoration: underline;
 }
