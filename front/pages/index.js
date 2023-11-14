@@ -4,11 +4,13 @@ import React, { useState } from "react";
 import SearchBar from "material-ui-search-bar";
 import Image from "next/image";
 import NavBar from "../components/navbar"
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
+import { webSearch } from "@/services/search";
 
 export default function Home() {
   const [searchValue, setSearchValue] = useState('');
-  const router = useRouter(); // Get the router object using the useRouter hook
+  const [results, setResults] = useState([]);
+  // const router = useRouter(); // Get the router object using the useRouter hook
 
   // const handleSearch = () => {
   //   console.log('Search value:', searchValue);
@@ -19,7 +21,8 @@ export default function Home() {
   //   return searchValue;
   // };
 
-  async function handleSearch(newInput: string) {
+  
+  async function handleSearch(newInput) {
     if (newInput == "") {
       return;
     }
@@ -33,6 +36,7 @@ export default function Home() {
       console.log("Error fetching news: ", err);
     }
   }
+
 
   return (
     <div>
