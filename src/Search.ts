@@ -38,7 +38,7 @@ async function fetchBackend(url: string, body: string): Promise<any> {
       body: body,
       mode: "unsafe-ignore-cors",
     },
-    mixFetchOptions,
+    mixFetchOptions
   );
   if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
   data = await response.json();
@@ -47,7 +47,7 @@ async function fetchBackend(url: string, body: string): Promise<any> {
 
 export async function webSearch(
   query: string,
-  page: number,
+  page: number
 ): Promise<Array<WebResult>> {
   const url = "http://" + process.env.REACT_APP_BACKEND + "/web";
   const body =
@@ -64,7 +64,7 @@ export async function webSearch(
 
 export async function newsSearch(
   query: string,
-  page: number,
+  page: number
 ): Promise<Array<NewsResult>> {
   const url = "http://" + process.env.REACT_APP_BACKEND + "/news";
   const body =
@@ -72,7 +72,7 @@ export async function newsSearch(
     query +
     "&offset=" +
     page +
-    "&count=20" + //Changes the number of results in the page
+    "&count=10" + //Changes the number of results in the page
     "&spellcheck=false&safesearch=off";
   const response = await fetchBackend(url, body);
   const results: Array<NewsResult> = response["results"];
@@ -81,7 +81,7 @@ export async function newsSearch(
 
 export async function videoSearch(
   query: string,
-  page: number,
+  page: number
 ): Promise<Array<VideoResult>> {
   const url = "http://" + process.env.REACT_APP_BACKEND + "/videos";
   const body =
@@ -98,7 +98,7 @@ export async function videoSearch(
 
 export async function imageSearch(
   query: string,
-  page: number,
+  page: number
 ): Promise<Array<ImageResult>> {
   const url = "http://" + process.env.REACT_APP_BACKEND + "/videos";
   const body =
@@ -119,7 +119,7 @@ export async function fetchImage(url: string): Promise<string> {
     {
       mode: "unsafe-ignore-cors",
     },
-    mixFetchOptions,
+    mixFetchOptions
   );
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);
