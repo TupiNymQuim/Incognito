@@ -1,18 +1,20 @@
-import React from "react";
+import React, { use } from "react";
 import styles from "./styles.module.css";
 import Head from "next/head";
-import { Card } from "../Card";
-import { Header } from "../Header";
+import { Card } from "../../components/Card";
+import { Header } from "../../components/Header";
 import { useState } from "react";
 import { webSearch, newsSearch } from "@/services/search";
 import { Button } from "antd";
 import { useEffect } from "react";
 import { Skeleton } from "antd";
 import { NewsResult, WebResult } from "@/types/result-types";
+import { useRouter } from "next/router";
 
-export function Search() {
+export default function Search() {
+  const router = useRouter();
   const [results, setResults] = useState<NewsResult[] | WebResult[]>([]);
-  const [currentInput, setCurrentInput] = useState("Dog");
+  const [currentInput, setCurrentInput] = useState(router.query.searchFromHome);
   const [resultType, setResultType] = useState("Web");
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(false);

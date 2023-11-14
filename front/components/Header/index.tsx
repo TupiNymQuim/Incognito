@@ -4,6 +4,7 @@ import logoImg from "../../assets/logo.png";
 import searchImg from "../../assets/search.png";
 import { ReadOutlined, GlobalOutlined } from "@ant-design/icons";
 import { useState } from "react";
+import { Input } from "antd";
 
 type Props = {
   currentInput: string;
@@ -19,6 +20,7 @@ export function Header({
   handleChangeType,
 }: Props) {
   const [input, setInput] = useState(currentInput);
+  const { Search } = Input;
 
   return (
     <div className={styles.header}>
@@ -30,18 +32,14 @@ export function Header({
           height={85}
           src={logoImg}
         ></Image>
-        <div className={styles.inputDiv}>
-          <Image
-            alt="Magnifier"
-            className={styles.inputIcon}
-            src={searchImg}
-          ></Image>
-          <input
-            onKeyDown={(e) => e.key === "Enter" && handleSearch(input)}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-          ></input>
-        </div>
+        <Search
+          className={styles.searchBar}
+          placeholder="search the web untracked"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onSearch={handleSearch}
+          size="large"
+        />
       </div>
       <div className={styles.buttons}>
         <button

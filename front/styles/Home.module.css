@@ -1,14 +1,30 @@
-.container
-{
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-content: center;
+  height: 40vh;
 }
 
-.lg_bar
-{
+.lg_bar {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  height: 70vh;
+  color: white;
+}
+
+.main {
+  min-height: 80vh;
+}
+
+.search_bar {
+  width: 130%;
+  height: 40px;
+  border-radius: 40px;
+  font-size: 1em;
+}
+
+.header {
+  height: 10vh;
 }

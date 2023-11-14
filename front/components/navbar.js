@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Link from 'next/link';
-{/*import { useWindowSize } from "@uidotdev/usehooks";*/}
 import styles from '../styles/navbar.module.css'
 
 const Navbar = () =>
@@ -15,13 +14,17 @@ const Navbar = () =>
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
         </Head>
-        <ul className={styles.list}>
+        <div className={styles.list}>
+          <Link href="/about">
             <li className={styles.navbar}>
-                <i href="/">About</i>
-                <i class="fa-regular fa-circle"></i>
-                <i class="fa-regular fa-circle"></i>
+                <i>
+                  <h4>About</h4>
+                </i>
+                <i className="fa-solid fa-circle" style={{ color: "#ffffff" }}></i>
+                <i className="fa-solid fa-circle" style={{ color: "#ffffff" }}></i>
             </li>
-        </ul>
+          </Link>
+        </div>
     </nav>
   );
 };

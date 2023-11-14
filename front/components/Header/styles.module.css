@@ -14,28 +14,8 @@
 	margin-right: 37px;
 }
 
-.inputDiv {
-	display: flex;
-	background-color: #FFFFFF;
-	align-items: center;
-	border-radius: 80px;
-	height: 62px;
+.searchBar {
 	width: 700px;
-}
-
-.inputDiv input {
-	width: 80%;
-	font-size: 18px;
-	border: none;
-}
-
-.inputDiv input:focus {
-	outline: none;
-}
-
-.inputIcon {
-	margin-left: 18px;
-	margin-right: 18px;
 }
 
 .buttons {

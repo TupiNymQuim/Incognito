@@ -1,11 +1,12 @@
 import '../styles/global.css';
-import {Search} from '../components/Search';
+import MainContainer from '../components/mainContainer';
 
-function MyApp()
+function MyApp({ Component, pageProps})
 {
 	return (
-		<Search>
-		</Search>
+		<MainContainer>
+			<Component {...pageProps} />
+		</MainContainer>
 	);
 }
 
