@@ -6,7 +6,10 @@ interface Thumbnail {
 export interface WebResult {
   age: string;
   description: string;
-  family_frinedly: boolean;
+  meta_url: {
+    favicon: string;
+  };
+  family_friendly: boolean;
   language: string;
   thumbnail: Thumbnail;
   title: string;
@@ -34,6 +37,9 @@ export interface VideoResult {
 export interface NewsResult {
   age: string;
   description: string;
+  meta_url: {
+    favicon: string;
+  };
   thumbnail: Thumbnail;
   title: string;
   url: string;
