@@ -1,13 +1,12 @@
 .header {
 	background-color: #3A3A3A;
 	height: 165px;
-	padding-bottom: 10px;
 }
 
 .content {
 	display: flex;
 	margin-left: 76px;
-	padding: 30.75px 0px;
+	margin-top: 30.75px;
 	align-items: center;
 }
 
@@ -41,6 +40,7 @@
 
 .buttons {
 	margin-left: 288px;
+	margin-top: 20px;
 }
 
 .button {
@@ -48,7 +48,18 @@
 	background: none;
 	font-family: 'Inter', sans-serif;
 	font-size: 16px;
-	border: 1px solid red;
+	border: none;
 	cursor: pointer;
-	color: white;
+	color: #FFFFFF;
+}
+
+.activeButton {
+	margin-right: 10px;
+	background: none;
+	font-family: 'Inter', sans-serif;
+	font-size: 16px;
+	cursor: pointer;
+	border: none;
+	border-bottom: #FFFFFF 2px solid;
+	color: #FFFFFF;
 }
