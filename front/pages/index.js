@@ -4,14 +4,19 @@ import React, { useState } from "react";
 import SearchBar from "material-ui-search-bar";
 import Image from "next/image";
 import NavBar from "../components/navbar"
-export default function Home()
-{
+import { useRouter } from 'next/router';
+
+export default function Home() {
   const [searchValue, setSearchValue] = useState('');
+  const router = useRouter(); // Get the router object using the useRouter hook
 
   const handleSearch = () => {
     console.log('Search value:', searchValue);
-  };
 
+    // Use the router object to navigate to the "/about" page
+    router.push('/about');
+    return searchValue;
+  };
   return (
     <div>
       <div className={styles.header}>
