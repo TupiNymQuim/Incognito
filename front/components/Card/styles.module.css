@@ -13,6 +13,7 @@
 	overflow: hidden;
 	width: 880px;
 	height: 30px;
+	display: flex;
 }
 
 .icon {

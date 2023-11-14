@@ -20,9 +20,9 @@ export function Card({ url, title, description }: Props) {
           alt="Icon"
           src={tupinymquim}
         ></Image>
-        {title.length > 67 ? (
+        {title.length > 55 ? (
           <a target="_blank" href={url} className={styles.title}>
-            {title.substring(0, 65) + "..."}
+            {title.substring(0, 53) + "..."}
           </a>
         ) : (
           <a target="_blank" href={url} className={styles.title}>
@@ -32,8 +32,8 @@ export function Card({ url, title, description }: Props) {
       </div>
       <div className={styles.content}>
         <span className={styles.description}>
-          {description.length > 252
-            ? description.substring(0, 250) + "..."
+          {description.length > 180
+            ? description.substring(0, 178) + "..."
             : description}
         </span>
       </div>
