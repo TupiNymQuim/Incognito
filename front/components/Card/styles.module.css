@@ -2,8 +2,8 @@
 	background-color: #3A3A3A;
 	margin-top: 48px;
 	border-radius: 38px;
-	height: 152px;
-	width: 979px;
+	width: 943px;
+	height: 134px;
 	margin-left: 279px;
 	padding-left: 36px;
 	padding-top: 18px;
@@ -11,27 +11,37 @@
 
 .header {
 	overflow: hidden;
-	max-width: 880px;
-	max-height: 36px;
+	width: 880px;
+	height: 30px;
 }
 
 .icon {
 	border-radius: 30px;
+	width: 30px;
+	height: 30px;
 }
 
 .title {
-	color: #FFFFFF;
+	color: #8ab4f8;
 	font-family: 'Inter', sans-serif;
 	font-weight: 700;
 	font-size: 24px;
 	margin-left: 14px;
-	line-height: 1.3;
+	text-decoration: none;
+}
+
+.title:hover {
+	text-decoration: underline;
+}
+
+.title:visited {
+	color: #c58af9;
 }
 
 .content {
 	margin-left: 44px;
 	margin-top: 24px;
-	max-width: 842px;
+	width: 842px;
 	height: 63px;
 	overflow: hidden;
 	word-wrap: break-word;
