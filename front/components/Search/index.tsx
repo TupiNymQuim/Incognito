@@ -4,11 +4,11 @@ import Head from "next/head";
 import { Card } from "../Card";
 import { Header } from "../Header";
 import { useState } from "react";
-import { webSearch, newsSearch } from "../../../src/Search";
+import { webSearch, newsSearch } from "@/services/search";
 import { Button } from "antd";
 import { useEffect } from "react";
 import { Skeleton } from "antd";
-import { NewsResult, WebResult } from "../../../src/result-types";
+import { NewsResult, WebResult } from "@/types/result-types";
 
 export function Search() {
   const [results, setResults] = useState<NewsResult[] | WebResult[]>([]);
