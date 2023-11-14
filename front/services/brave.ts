@@ -72,7 +72,7 @@ export async function newsSearch(
     query +
     "&offset=" +
     page +
-    "&count=20" + //Changes the number of results in the page
+    "&count=10" + //Changes the number of results in the page
     "&spellcheck=false&safesearch=off";
   const response = await fetchBraveApi(url);
   const results: Array<NewsResult> = response["results"];
