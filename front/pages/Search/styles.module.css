@@ -1,0 +1,33 @@
+.container {
+	background-color: #2A2A2A;
+	min-height: 100vh;
+	padding-bottom: 30px;
+	display: flex;
+	flex-direction: column;
+}
+
+.skeleton {
+	width: 979px;
+	height: 152px;
+	margin-left: 279px;
+	margin-top: 48px;
+	border-radius: 38px;
+}
+
+.pages {
+	margin-top: 30px;
+	align-self: center;
+}
+
+.page {
+	background-color: #3A3A3A;
+	color: #FFFFFF;
+	border: none;
+	margin-right: 5px;
+}
+
+.errorMsg {
+	color: #FFFFFF;
+	text-align: center;
+	margin-top: 30px;
+}

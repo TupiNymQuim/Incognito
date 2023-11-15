@@ -1,62 +1,51 @@
-/* About.module.css */
-
-.about
-{
+.about {
     display: flex;
     color: white;
 }
 
-.container
-{
+.container {
     display: flex;
-    flex-direction: row;
-
+    flex-direction: column;
 }
 
-.main_container
-{
+.main_container {
     height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    margin-left: 13vh;
+    margin-right: 13vh;
 }
 
-.left_space
-{
+.left_space {
     min-width: 13vh;
 }
 
-.container_right
-{
+.container_right {
     min-width: 80vh;
 }
 
-.container_right h1
-{
+.container_right h1 {
     color: white;
 }
 
-.about h1
-{
+.about h1 {
     display: flex;
     justify-content: center;
     text-align: center;
     color: white;
 }
 
-.main_container h1
-{
+.main_container h1 {
     color: white;
 }
 
-.main_container p
-{
+.main_container p {
     color: white;
 }
 
-.website
-{
+.website {
     color: rgb(23, 91, 186);
     font-weight: bold;
     text-decoration: underline;

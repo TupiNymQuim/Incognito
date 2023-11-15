@@ -1,5 +1,4 @@
-.container
-{
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,27 +7,24 @@
   height: 40vh;
 }
 
-.lg_bar
-{
+.lg_bar {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
 }
 
-.main
-{
+.main {
   min-height: 80vh;
 }
 
-.search_bar
-{
+.search_bar {
   width: 130%;
+  height: 40px;
   border-radius: 40px;
-  font-size: 1em; /* You can use em for relative font size */
+  font-size: 1em;
 }
 
-.header
-{
+.header {
   height: 10vh;
 }
