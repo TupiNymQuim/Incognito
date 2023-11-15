@@ -27,12 +27,12 @@ Our search tool preserves the confidentiality of metadata by ensuring that each 
 3) Run the node with `npm run dev`
 
 
-### Team Members:
+### Team Members (Discord) :
 
-- itsmevittin - Developer
-- izacabral - Developer and Design
-- pedroarnaldo - Developer
-- psydenst - Developer, Philosophy Graduate and Spokesman
-- supermeia - Developer and Spokesman
-- ukinaa - Developer
-- vitorsantanna  - Developer and Cybersecurity Analyst
+- @itsmevitinn - Developer
+- @izacabral - Developer and Design
+- @pedroarnaldo - Developer
+- @psydenst - Developer, Philosophy Graduate and Spokesman
+- @supermeia - Developer and Spokesman
+- @ukinaa - Developer
+- @vitorsantanna  - Developer and Cybersecurity Analyst
