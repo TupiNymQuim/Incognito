@@ -24,7 +24,7 @@ Our search tool preserves the confidentiality of metadata by ensuring that each 
 
 1) Install node js with `apt install npm`
 2) Install the dependencies with `npm install`
-3) 2) Set Environment Variables in a .env file, see the [example](https://github.com/TupiNymQuim/search/blob/main/front/.env-example)
+3) Set Environment Variables in a .env file, see the [example](https://github.com/TupiNymQuim/search/blob/main/front/.env-example)
 4) Run the node with `npm run dev`
 
 
