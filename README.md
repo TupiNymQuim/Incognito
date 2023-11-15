@@ -33,7 +33,7 @@ Our search tool preserves the confidentiality of metadata by ensuring that each 
 - itsmevittin - Developer
 - izacabral - Developer and Design
 - pedroarnaldo - Developer
-- psydenst - Developer, Philosopher and Spokesman
+- psydenst - Developer, Philosophy Graduate and Spokesman
 - supermeia - Developer and Spokesman
 - ukinaa - Developer
 - vitorsantanna  - Developer and Cybersecurity Analyst
