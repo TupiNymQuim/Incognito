@@ -7,6 +7,10 @@ Using the Brave API for research, we combine this with the security provided by 
 
 Our search tool preserves the confidentiality of metadata by ensuring that each application fetch occurs across a distributed network, further reinforcing user privacy.
 
+### Application Topology
+![image](https://github.com/TupiNymQuim/search/assets/95882160/4af7a596-fb6e-4ae1-a0d1-abc1d9f789bb)
+
+
 
 ### How to install the Backend
 
