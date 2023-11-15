@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# Incognito Search
+![incognito](https://github.com/TupiNymQuim/search/assets/95882160/cd11d0c9-4594-4989-b518-7f25ef1a663b)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## The Anonymous Search Engine
 
-## Available Scripts
+Using the Brave API for research, we combine this with the security provided by the decentralized network, specifically the Nym Technologies SA mixnet. The result? 100% anonymous and secure online consultations! 🥷🏼
 
-In the project directory, you can run:
+Our search tool preserves the confidentiality of metadata by ensuring that each application fetch occurs across a distributed network, further reinforcing user privacy.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### How to install the Backend
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1) Install the Rust
+`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+2) Set Environment Variables in a .env file, see the [example](https://github.com/TupiNymQuim/search/blob/final/.env-example)
+3) Install the program with `cargo install`
+4) Run the program with `cargo run`
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### How to install the Frontend
 
-### `npm run build`
+1) Install node js with `apt install npm`
+2) Install the dependencies with `npm install`
+3) Run the node with `npm next dev`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Team Members:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- itsmevittin - Developer
+- izacabral - Developer and Design
+- pedroarnaldo - Developer
+- psydenst - Developer, Philosopher and Spokesman
+- supermeia - Developer and Spokesman
+- ukinaa - Developer
+- vitorsantanna  - Developer and Cybersecurity Analyst
