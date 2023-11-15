@@ -1,6 +1,4 @@
-import React, { use } from "react";
 import styles from "./styles.module.css";
-import Head from "next/head";
 import { Card } from "../../components/Card";
 import { Header } from "../../components/Header";
 import { useState } from "react";
@@ -13,11 +11,13 @@ import { useRouter } from "next/router";
 
 export default function Search() {
   const router = useRouter();
+  const searchFromHome = router.query.searchFromHome as string;
   const [results, setResults] = useState<NewsResult[] | WebResult[]>([]);
-  const [currentInput, setCurrentInput] = useState(router.query.searchFromHome);
+  const [currentInput, setCurrentInput] = useState(searchFromHome);
   const [resultType, setResultType] = useState("Web");
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSearch(newInput: string) {
     if (newInput == "") {
@@ -25,6 +25,7 @@ export default function Search() {
     }
     try {
       setLoading(true);
+      setErrorMsg("");
       let data;
       if (resultType == "Web") {
         data = await webSearch(newInput, 0);
@@ -34,9 +35,10 @@ export default function Search() {
       setResults(data);
       setCurrentInput(newInput);
       setLoading(false);
-      console.log("Results after search; ", data);
     } catch (err) {
-      console.log("Error fetching news: ", err);
+      setErrorMsg("Error while fetching for results.");
+      setLoading(false);
+      console.log("Error fetching search: ", err);
     }
   }
 
@@ -47,6 +49,7 @@ export default function Search() {
     try {
       let data;
       setLoading(true);
+      setErrorMsg("");
       if (newType == "Web") {
         data = await webSearch(currentInput, 0);
       } else {
@@ -54,9 +57,12 @@ export default function Search() {
       }
       setResults(data);
       setResultType(newType);
+      setCurrentPage(0);
       setLoading(false);
       console.log("Results after change type; ", data);
     } catch (err) {
+      setErrorMsg("Error while changing type.");
+      setLoading(false);
       console.log("Error while changing type: ", err);
     }
   }
@@ -68,6 +74,7 @@ export default function Search() {
     try {
       let data;
       setLoading(true);
+      setErrorMsg("");
       if (resultType == "Web") {
         data = await webSearch(currentInput, page);
       } else {
@@ -78,6 +85,8 @@ export default function Search() {
       setLoading(false);
       console.log("Resultados change page; ", data);
     } catch (err) {
+      setErrorMsg("Error while changing page.");
+      setLoading(false);
       console.log("Error while changing page: ", err);
     }
   }
@@ -88,19 +97,13 @@ export default function Search() {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        ></link>
-      </Head>
       <Header
         currentInput={currentInput}
         resultType={resultType}
         handleSearch={handleSearch}
         handleChangeType={handleChangeType}
       />
-      {loading ? (
+      {loading && (
         <>
           {[...Array(3)].map((_, index) => (
             <Skeleton.Input
@@ -116,25 +119,31 @@ export default function Search() {
             />
           ))}
         </>
-      ) : (
-        results.map((item) => (
+      )}
+      {errorMsg == "" && !loading ? (
+        results.map((item, index) => (
           <Card
-            // favicon={item.meta_url.favicon}
+            key={index}
             url={item.url}
             title={item.title}
             description={item.description}
           />
         ))
+      ) : (
+        <span className={styles.errorMsg}>{errorMsg}</span>
       )}
       <div className={styles.pages}>
-        {[...Array(6)].map((_, index) => (
-          <Button
-            className={styles.page}
-            onClick={() => handleChangePage(index)}
-          >
-            {index}
-          </Button>
-        ))}
+        {errorMsg == "" &&
+          !loading &&
+          [...Array(6)].map((_, index) => (
+            <Button
+              key={index}
+              className={styles.page}
+              onClick={() => handleChangePage(index)}
+            >
+              {index}
+            </Button>
+          ))}
       </div>
     </div>
   );
