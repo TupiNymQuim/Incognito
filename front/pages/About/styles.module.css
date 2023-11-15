@@ -14,6 +14,8 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    margin-left: 13vh;
+    margin-right: 13vh;
 }
 
 .left_space {
