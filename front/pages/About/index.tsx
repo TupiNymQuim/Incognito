@@ -16,16 +16,15 @@ export default function About() {
       <Navbar type="About" />
       <main className={styles.main_container}>
         <h1>About Incognito Search</h1>
-        <p>
-          Welcome to Incognito, where privacy meets innovation. As a Web3
-          private search tool based on blockchain, Incognito runs above the Nym
-          mixnet, ensuring your searches remain truly private. We keep no track
-          of users, prioritizing the confidentiality of both searches and
-          metadata. While our current experience is free, Incognito is committed
-          to becoming a paid service in the future, ensuring sustainable privacy
-          for all. Welcome to the future of private search—welcome to Incognito,
-          where your online presence remains untracked.
-        </p>
+          <p>
+          We are a search tool focused on privacy. At Incognito Search, no content searched by users is shared with any third party.
+          </p>
+          <p>
+          We don't log any information on user behavior. Unlike competitors, we don't see our users' data as products.
+          </p>
+          <p>
+          Incognito Search runs on top of Nym Mixnet, the best platform for securing private Internet traffic; guaranteeing privacy in a decentralized infrastrucutre.
+          </p>
         <h1>Why protect your privacy?</h1>
         <p>Firstly, because it is a fundamental right.</p>
         <p>
@@ -52,7 +51,7 @@ export default function About() {
         </p>
         <p>
           Fortunately, Incognito, operating on top of the Nym mixnet, offers a
-          simple way to browse privately.
+          simple way to search privately.
         </p>
         <h1>Meet TupiNymQuim </h1>
         <p>
