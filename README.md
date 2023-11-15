@@ -17,8 +17,7 @@ Our search tool preserves the confidentiality of metadata by ensuring that each 
 1) Install the Rust
 `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 2) Set Environment Variables in a .env file, see the [example](https://github.com/TupiNymQuim/search/blob/main/.env-example)
-3) Install the program with `cargo install`
-4) Run the program with `cargo run`
+3) Install and Run the program with `cargo run`
 
 
 ### How to install the Frontend
