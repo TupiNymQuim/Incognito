@@ -16,7 +16,7 @@ Our search tool preserves the confidentiality of metadata by ensuring that each 
 
 1) Install the Rust
 `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
-2) Set Environment Variables in a .env file, see the [example](https://github.com/TupiNymQuim/search/blob/main/.env-example)
+2) Set Environment Variables in a .env file, see the [example](https://github.com/TupiNymQuim/search/blob/main/backend/.env-example)
 3) Install and Run the program with `cargo run`
 
 
@@ -24,7 +24,8 @@ Our search tool preserves the confidentiality of metadata by ensuring that each 
 
 1) Install node js with `apt install npm`
 2) Install the dependencies with `npm install`
-3) Run the node with `npm run dev`
+3) 2) Set Environment Variables in a .env file, see the [example](https://github.com/TupiNymQuim/search/blob/main/front/.env-example)
+4) Run the node with `npm run dev`
 
 
 ### Team Members (Discord) :
