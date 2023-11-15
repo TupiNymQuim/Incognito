@@ -12,6 +12,7 @@
 
 .headerLogo {
 	margin-right: 37px;
+	cursor: pointer;
 }
 
 .searchBar {

@@ -1,10 +1,10 @@
 import styles from "./styles.module.css";
 import Image from "next/image";
 import logoImg from "../../assets/logo.png";
-import searchImg from "../../assets/search.png";
 import { ReadOutlined, GlobalOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { Input } from "antd";
+import { useRouter } from "next/router";
 
 type Props = {
   currentInput: string;
@@ -21,11 +21,13 @@ export function Header({
 }: Props) {
   const [input, setInput] = useState(currentInput);
   const { Search } = Input;
+  const router = useRouter();
 
   return (
     <div className={styles.header}>
       <div className={styles.content}>
         <Image
+          onClick={() => router.push("/")}
           className={styles.headerLogo}
           alt="Logo"
           width={166}
