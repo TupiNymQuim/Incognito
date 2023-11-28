@@ -104,21 +104,20 @@ export default function Search() {
         handleChangeType={handleChangeType}
       />
       {loading && (
-        <>
+        <div className={styles.skeletons}>
           {[...Array(3)].map((_, index) => (
             <Skeleton.Input
               key={index}
               style={{
-                width: 979,
-                height: 152,
-                marginLeft: 279,
-                marginTop: 48,
+                height: 200,
+                width: "100%",
+                marginTop: "5%",
                 borderRadius: 38,
               }}
               active
             />
           ))}
-        </>
+        </div>
       )}
       {errorMsg == "" && !loading ? (
         results.map((item, index) => (

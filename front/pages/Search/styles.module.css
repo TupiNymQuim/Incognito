@@ -1,17 +1,16 @@
 .container {
 	background-color: #2A2A2A;
-	min-height: 100vh;
+	height: 100vh;
 	padding-bottom: 30px;
 	display: flex;
 	flex-direction: column;
 }
 
-.skeleton {
-	width: 979px;
-	height: 152px;
-	margin-left: 279px;
-	margin-top: 48px;
-	border-radius: 38px;
+.skeletons {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: center;
 }
 
 .pages {
