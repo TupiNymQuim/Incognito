@@ -26,7 +26,7 @@ export default function Home() {
   const { Search } = Input;
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.header}>
         <Head>
           <link
@@ -37,20 +37,22 @@ export default function Home() {
         </Head>
         <NavBar />
       </div>
-      <div className={styles.container}>
-        <main>
-          <div className={styles.lg_bar}>
-            <Image alt="Logo" src="/logo.png" width={500} height={500} />
-            <Search
-              className={styles.search_bar}
-              placeholder="search the web untracked"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-              onSearch={handleSearch}
-              size="large"
-            />
-          </div>
-        </main>
+      <div className={styles.content}>
+        <Image
+          className={styles.imageLogo}
+          alt="Logo"
+          src="/logo.png"
+          width={400}
+          height={400}
+        />
+        <Search
+          className={styles.search_bar}
+          placeholder="search the web untracked"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+          onSearch={handleSearch}
+          size="large"
+        />
       </div>
     </div>
   );

@@ -1,25 +1,27 @@
 .container {
+  height: 100vh;
+}
+
+.content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  align-content: center;
-  height: 40vh;
-}
-
-.lg_bar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
 }
 
 .main {
   min-height: 80vh;
 }
 
+@media (max-width: 480px) {
+  .imageLogo {
+    width: 200px;
+    height: 100px;
+  }
+}
+
 .search_bar {
-  width: 130%;
+  width: 80%;
   height: 40px;
   border-radius: 40px;
   font-size: 1em;
