@@ -1,11 +1,10 @@
 .header {
 	background-color: #3A3A3A;
-	height: 25%;
+	padding-bottom: 0.5rem;
 }
 
 .content {
 	display: flex;
-	margin-top: 2%;
 	align-items: center;
 }
 
@@ -33,7 +32,7 @@
 }
 
 .buttons {
-	margin-left: 19%;
+	margin-left: 17%;
 	margin-top: 2%;
 }
 
@@ -45,7 +44,7 @@
 }
 
 .button {
-	margin-right: 2%;
+	margin-right: 0.875rem;
 	background: none;
 	font-family: 'Inter', sans-serif;
 	font-size: 16px;
@@ -55,7 +54,7 @@
 }
 
 .activeButton {
-	margin-right: 2%;
+	margin-right: 0.875rem;
 	background: none;
 	font-family: 'Inter', sans-serif;
 	font-size: 16px;

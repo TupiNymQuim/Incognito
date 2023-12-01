@@ -1,20 +1,13 @@
 .container {
+	display: flex;
+	flex-direction: column;
 	background-color: #2A2A2A;
 	height: 100vh;
-	padding-bottom: 30px;
-	display: flex;
-	flex-direction: column;
-}
-
-.skeletons {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	align-items: center;
+	padding-bottom: 2rem;
 }
 
 .pages {
-	margin-top: 30px;
+	margin-top: 1.5rem;
 	align-self: center;
 }
 
@@ -25,8 +18,8 @@
 	margin-right: 5px;
 }
 
-.errorMsg {
+.content {
 	color: #FFFFFF;
 	text-align: center;
-	margin-top: 30px;
+	margin-top: 1.5rem;
 }

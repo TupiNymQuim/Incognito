@@ -5,9 +5,9 @@ import { useState } from "react";
 import { webSearch, newsSearch } from "@/services/search";
 import { Button } from "antd";
 import { useEffect } from "react";
-import { Skeleton } from "antd";
 import { NewsResult, WebResult } from "@/types/result-types";
 import { useRouter } from "next/router";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Search() {
   const router = useRouter();
@@ -104,33 +104,26 @@ export default function Search() {
         handleChangeType={handleChangeType}
       />
       {loading && (
-        <div className={styles.skeletons}>
-          {[...Array(3)].map((_, index) => (
-            <Skeleton.Input
-              key={index}
-              style={{
-                height: 200,
-                width: "100%",
-                marginTop: "5%",
-                borderRadius: 38,
-              }}
-              active
-            />
+        <div>
+          {[...Array(4)].map((_, index) => (
+            <Skeleton className="h-36 mt-2" />
           ))}
         </div>
       )}
-      {errorMsg == "" && !loading ? (
-        results.map((item, index) => (
-          <Card
-            key={index}
-            url={item.url}
-            title={item.title}
-            description={item.description}
-          />
-        ))
-      ) : (
-        <span className={styles.errorMsg}>{errorMsg}</span>
-      )}
+      <div className={styles.content}>
+        {errorMsg == "" && !loading ? (
+          results.map((item, index) => (
+            <Card
+              key={index}
+              url={item.url}
+              title={item.title}
+              description={item.description}
+            />
+          ))
+        ) : (
+          <span>{errorMsg}</span>
+        )}
+      </div>
       <div className={styles.pages}>
         {errorMsg == "" &&
           !loading &&
